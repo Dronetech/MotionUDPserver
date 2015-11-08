@@ -10,12 +10,12 @@ namespace MotionUdpServer
         static void Main(string[] args)
         {
                        
-            byte[] data = new byte[1024];
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 6969);
-            UdpClient newsock = new UdpClient(ipep);
+            byte[] data = new byte[1024];            
+            UdpClient serverSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1000));
+            UdpClient senderSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1001));
             Console.WriteLine("Server started");
 
-            IPEndPoint sender = new IPEndPoint(IPAddress.Any, 0);
+            IPEndPoint udpCommsender = new IPEndPoint(IPAddress.Any, 0);
 
             String s_received = "";
             String welcome = "";
@@ -25,13 +25,13 @@ namespace MotionUdpServer
             {
 
                 Console.WriteLine("Waiting for a client...");
-                data = newsock.Receive(ref sender);
-                s_received = Encoding.ASCII.GetString(data, 0, data.Length);
-                Console.WriteLine("Message received from {0}:", sender.ToString());
-                Console.WriteLine(s_received);
-                welcome = "received:";
-                data = Encoding.ASCII.GetBytes(welcome + s_received);
-                newsock.Send(data, data.Length, sender);
+                data = serverSocket.Receive(ref udpCommsender); //A escuta no porto 1000
+                s_received = Encoding.ASCII.GetString(data, 0, data.Length); //passar os bytes para string da mensagem recebida
+                Console.WriteLine("Message received from {0}:", udpCommsender.ToString()); //imprime de onde veio a mensagem
+                Console.WriteLine(s_received); //imprime a mensagem
+                welcome = "received:"; // começa a preparar a mensagem
+                data = Encoding.ASCII.GetBytes(welcome + s_received); //Preparar mensagem de envio com um cabeçalho
+                senderSocket.Send(data, data.Length, udpCommsender); //Envio no porto 1001
 
             }
         }
