@@ -23,7 +23,7 @@ namespace MotionUdpServer
 
             while (true)
             {
-
+                
                 Console.WriteLine("Waiting for a client...");
                 data = serverSocket.Receive(ref udpCommsender); //A escuta no porto 1000
                 s_received = Encoding.ASCII.GetString(data, 0, data.Length); //passar os bytes para string da mensagem recebida

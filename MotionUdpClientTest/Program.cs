@@ -12,11 +12,11 @@ namespace MotionUdpClientTest
             byte[] data = new byte[1024];
             Console.WriteLine("Insert server IP address:");
             String IP = Console.ReadLine();
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 6970);
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 1001);
             UdpClient newsock = new UdpClient(ipep);
             data = Encoding.ASCII.GetBytes("Test Data");
 
-            IPEndPoint server = new IPEndPoint(IPAddress.Parse(IP), 6969);
+            IPEndPoint server = new IPEndPoint(IPAddress.Parse(IP), 1000);
             newsock.Send(data, data.Length, server);
 
             data = newsock.Receive(ref server);
