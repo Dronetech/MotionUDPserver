@@ -11,8 +11,8 @@ namespace MotionUdpServer
         {
                        
             byte[] data = new byte[1024];            
-            UdpClient serverSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1000)); //socket em escuta
-            UdpClient senderSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1001)); //socket para enviar
+            UdpClient serverSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1001)); //socket em escuta
+            UdpClient senderSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1000)); //socket para enviar
             Console.WriteLine("Server started");
 
             IPEndPoint udpCommsender = new IPEndPoint(IPAddress.Any, 0); //o ip de onde vem a informação serve só para mostrar de onde veio nesta aplicação
