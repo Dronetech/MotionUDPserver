@@ -12,7 +12,7 @@ namespace MotionUdpServer
                        
             byte[] data = new byte[1024];            
             UdpClient serverSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1001)); //socket em escuta
-            UdpClient senderSocket = new UdpClient(new IPEndPoint(IPAddress.Any, 1000)); //socket para enviar
+          
             Console.WriteLine("Server started");
 
             IPEndPoint udpCommsender = new IPEndPoint(IPAddress.Any, 0); //o ip de onde vem a informação serve só para mostrar de onde veio nesta aplicação
@@ -31,7 +31,7 @@ namespace MotionUdpServer
                 Console.WriteLine(s_received); //imprime a mensagem
                 welcome = "received:"; // começa a preparar a mensagem
                 data = Encoding.ASCII.GetBytes(welcome + s_received); //Preparar mensagem de envio com um cabeçalho
-                senderSocket.Send(data, data.Length, udpCommsender); //Envio no porto 1001
+                serverSocket.Send(data, data.Length, udpCommsender); //Envio no porto 1001
 
             }
         }

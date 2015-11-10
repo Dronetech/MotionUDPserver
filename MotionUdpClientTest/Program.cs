@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace MotionUdpClientTest
 {
@@ -12,17 +13,22 @@ namespace MotionUdpClientTest
             byte[] data = new byte[1024];
             Console.WriteLine("Insert server IP address:");
             String IP = Console.ReadLine();
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 1001);
-            UdpClient newsock = new UdpClient(ipep);
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 1002);
+            IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse(IP), 1001);
+            IPEndPoint bufferAddress = new IPEndPoint(IPAddress.Any, 0);
+            UdpClient clientSock = new UdpClient(ipep);
             data = Encoding.ASCII.GetBytes("Test Data");
 
-            IPEndPoint server = new IPEndPoint(IPAddress.Parse(IP), 1000);
-            newsock.Send(data, data.Length, server);
+            while(true)
+            {
+                clientSock.Send(data, data.Length, serverAddress);
+                data = clientSock.Receive(ref bufferAddress);
+                Console.WriteLine("Data received:");
+                Console.WriteLine(Encoding.ASCII.GetString(data));
+                Thread.Sleep(1000);
+            }
 
-            data = newsock.Receive(ref server);
-            Console.WriteLine("Data received:");
-            Console.WriteLine(Encoding.ASCII.GetString(data));
-            Console.ReadKey();
+          
 
         }
     }
