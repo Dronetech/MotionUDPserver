@@ -13,8 +13,8 @@ namespace MotionUdpClientTest
             byte[] data = new byte[1024];
             Console.WriteLine("Insert server IP address:");
             String IP = Console.ReadLine();
-            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 1002); //Endpoint desta maquina
-            IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse(IP), 1001); //Endpoint para o servidor
+            IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 1001); //Endpoint desta maquina
+            IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse(IP), 1000); //Endpoint para o servidor
             IPEndPoint bufferAddress = new IPEndPoint(IPAddress.Any, 0); //Endpoint vazio so para servir de buffer
             UdpClient clientSock = new UdpClient(ipep); //Abrir o porto nesta maquina
             data = Encoding.ASCII.GetBytes("Test Data"); //criar os dados
@@ -32,5 +32,15 @@ namespace MotionUdpClientTest
           
 
         }
+
+        public void SendUDP() {
+
+
+        }
+        public void ReceiveUDP() {
+
+
+        }
+
     }
 }
