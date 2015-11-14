@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -10,6 +11,7 @@ namespace MotionUdpClientTest
     {
         static void Main(string[] args)
         {
+                        
             byte[] data = new byte[1024];
             Console.WriteLine("Insert server IP address:");
             String IP = Console.ReadLine();
