@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionUdpServer", "MotionUd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotionUdpClientTest", "MotionUdpClientTest\MotionUdpClientTest.csproj", "{89A54F21-6060-408C-8B08-76590EE58AAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommsModule", "CommsModule\CommsModule.csproj", "{B96A32A3-E3B9-40C5-BF4D-8AA0A1480C07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{89A54F21-6060-408C-8B08-76590EE58AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89A54F21-6060-408C-8B08-76590EE58AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89A54F21-6060-408C-8B08-76590EE58AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B96A32A3-E3B9-40C5-BF4D-8AA0A1480C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96A32A3-E3B9-40C5-BF4D-8AA0A1480C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96A32A3-E3B9-40C5-BF4D-8AA0A1480C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96A32A3-E3B9-40C5-BF4D-8AA0A1480C07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

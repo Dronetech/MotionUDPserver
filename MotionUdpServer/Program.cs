@@ -10,6 +10,19 @@ namespace MotionUdpServer
     {
         static void Main(string[] args)
         {
+
+            int[] teste = new int[1000];
+
+            for (int i = 0; i < teste.Length; i++)
+            {
+                teste[i] = i;
+            }
+
+            for (int i = 0; i < teste.Length; i++)
+            {
+                Console.WriteLine(teste[i]);
+            }
+
             Stopwatch sw = new Stopwatch();
                     
             byte[] data = new byte[1024];            
